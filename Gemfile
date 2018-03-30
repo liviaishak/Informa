@@ -34,24 +34,13 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-gem 'thor', '0.19.1'
-
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'pry-rails'
 end
 
-group :development, :test do
-   gem 'rspec-rails', '~> 3.0'
-   gem 'rails-controller-testing'
-   gem 'shoulda'
-   gem 'factory_girl_rails', '~> 4.0'
-end
-
 gem 'bootstrap-sass'
 
 gem 'devise'
-
-gem 'bcrypt'
 
 gem 'figaro', '1.0'
