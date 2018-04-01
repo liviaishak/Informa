@@ -1,4 +1,5 @@
 class WikisController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @wikis = Wiki.all
@@ -55,4 +56,10 @@ class WikisController < ApplicationController
        render :show
      end
    end
+
+   private
+
+  def wiki_params
+    params.require(:wiki).permit(:title, :body)
+  end
 end

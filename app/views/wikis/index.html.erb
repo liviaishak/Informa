@@ -4,6 +4,12 @@
    <div class="media-body">
      <h4 class="media-heading">
        <%= link_to wiki.title, wiki %>
+       <% if user_signed_in? && current_user == wiki.user %>
+				<td><%= link_to "Edit", edit_wiki_path(wiki.id) %></td>
+				<td><%= link_to "DELETE", wiki, method: :delete, data: {confirm: "Are you sure?"} %></td>
+			<% elsif user_signed_in? %>
+			  <td><%= link_to "Edit", edit_wiki_path(wiki.id) %></td>
+			<% end %>
      </h4>
    </div>
 
