@@ -18,7 +18,7 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki = Wiki.new
+    @wiki = Wiki.new(wiki_params)
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
 
@@ -60,6 +60,6 @@ class WikisController < ApplicationController
    private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body)
+    params.require(:wiki).permit(:title, :body, :private)
   end
 end
