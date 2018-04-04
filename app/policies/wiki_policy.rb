@@ -13,4 +13,8 @@ class WikiPolicy
   def destroy?
     user == wiki.user && user.present?
   end
+
+  def create?
+    user.present?
+  end
 end
