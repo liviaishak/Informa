@@ -4,6 +4,9 @@ class DowngradeController < ApplicationController
 
   def create
     current_user.standard!
+    current_user.wikis.each do |wik|
+      wik.update_attribute(:private, false)
+    end
     # re = Stripe::Refund.create(
     # charge: "ch_1CD2TBC9ne8Id87DHHXyMef2"
     # )

@@ -17,4 +17,16 @@ class WikiPolicy
   def create?
     user.present?
   end
+
+  def index?
+    user.present?
+  end
+
+  def new?
+    create?
+  end
+
+  def edit
+    user.present?
+  end
 end
