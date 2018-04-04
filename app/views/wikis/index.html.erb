@@ -5,8 +5,8 @@
      <h4 class="media-heading">
        <%= link_to wiki.title, wiki %>
        <% if user_signed_in? && current_user == wiki.user %>
-				<td><%= link_to "Edit", edit_wiki_path(wiki.id) %></td>
-				<td><%= link_to "Delete", wiki, method: :delete, data: {confirm: "Are you sure?"} %></td>
+  				<td><%= link_to "Edit", edit_wiki_path(wiki.id) %></td>
+  				<td><%= link_to "Delete", wiki, method: :delete, data: {confirm: "Are you sure?"} %></td>
 			<% elsif user_signed_in? %>
 			  <td><%= link_to "Edit", edit_wiki_path(wiki.id) %></td>
 			<% end %>
@@ -16,8 +16,9 @@
  </div>
  <% end %>
 
- <div class="text-center">
+
+ <div class="col-md-4">
    <% if user_signed_in? %>
-	   <%= link_to "Create a new Wiki", new_wiki_path, class: "btn btn-success" %>
-	 <% end %>
+     <%= link_to "Create a new Wiki", new_wiki_path, class: "btn btn-success" %>
+   <% end %>
  </div>
