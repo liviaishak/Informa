@@ -1,7 +1,16 @@
 class WikiPolicy
-  class Scope < Scope
-    def resolve
-      scope
-    end
+  attr_reader :user, :wiki
+
+  def initialize(user, wiki)
+    @user = user
+    @wiki = wiki
+  end
+
+  def show?
+    true
+  end
+
+  def destroy?
+    user == wiki.user && user.present?
   end
 end

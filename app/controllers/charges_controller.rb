@@ -16,7 +16,7 @@ class ChargesController < ApplicationController
        currency: 'usd'
      )
 
-     flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
+     flash[:notice] = "Thank you for the payment and upgrading your account to Premium, #{current_user.email}!"
      current_user.update_attribute(:role, 'premium')
      redirect_to edit_user_registration_path
 
