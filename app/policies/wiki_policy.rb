@@ -19,14 +19,19 @@ class WikiPolicy
   end
 
   def index?
-    user.present?
+    true
   end
 
   def new?
     create?
   end
 
-  def edit
+  def edit?
+    update?
+  end
+
+  def update?
     user.present?
   end
+
 end
