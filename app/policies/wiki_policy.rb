@@ -6,20 +6,16 @@ class WikiPolicy
     @wiki = wiki
   end
 
+  def index?
+    true
+  end
+
   def show?
     true
   end
 
-  def destroy?
-    user == wiki.user && user.present?
-  end
-
   def create?
     user.present?
-  end
-
-  def index?
-    true
   end
 
   def new?
@@ -28,6 +24,10 @@ class WikiPolicy
 
   def edit?
     update?
+  end
+
+  def destroy?
+    user == wiki.user && user.present?
   end
 
   def update?
