@@ -3,7 +3,6 @@ class WikisController < ApplicationController
 
   def index
     @wikis = Wiki.all
-    authorize @wikis
   end
 
   def show
@@ -18,7 +17,6 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
-    authorize @wiki
   end
 
   def create
@@ -36,7 +34,6 @@ class WikisController < ApplicationController
 
    def update
      @wiki = Wiki.find(params[:id])
-     authorize @wiki
      @wiki.assign_attributes(wiki_params)
 
      if @wiki.save

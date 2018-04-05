@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
      )
 
      flash[:notice] = "Thank you for the payment and upgrading your account to Premium, #{current_user.email}!"
-     current_user.update_attribute(:role, 'premium')
+     current_user.premium!
      redirect_to edit_user_registration_path
 
      # Stripe will send back CardErrors, with friendly messages
