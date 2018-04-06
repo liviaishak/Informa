@@ -3,10 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :wikis
 
-  before_save { self.role ||= :standard }
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   enum role: [:standard, :premium, :admin]
+  before_save { self.role ||= :standard }
+
+  def set_default_role
+    self.role ||= :standard
+  end
+
 end

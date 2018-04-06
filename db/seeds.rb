@@ -8,6 +8,18 @@ require 'random_data'
  password: RandomData.random_sentence
  )
 end
+users = User.all
+
+
+# Create Wikis
+50.times do
+ Wiki.create!(
+   user:   users.sample,
+   title:  Faker::Name.title,
+   body:   RandomData.random_paragraph,
+ )
+end
+wikis = Wiki.all
 
 # Create admin user
 1.times do
@@ -25,17 +37,6 @@ end
  password: 'helloworld'
  )
 end
-users = User.all
-
-# Create Wikis
-50.times do
- Wiki.create!(
-   user:   users.sample,
-   title:  Faker::Name.title,
-   body:   RandomData.random_paragraph
- )
-end
-wikis = Wiki.all
 
 puts "Seed finished"
 puts "#{User.count} users created"
