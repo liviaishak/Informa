@@ -8,9 +8,10 @@ class User < ApplicationRecord
 
   enum role: [:standard, :premium, :admin]
   before_save { self.role ||= :standard }
+  after_initialize { self.role ||= :standard }
 
-  def set_default_role
-    self.role ||= :standard
-  end
+
+  # Methods start here
+
 
 end

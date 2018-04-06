@@ -17,7 +17,7 @@ class WikisController < ApplicationController
   def new
     @wiki = Wiki.new
     authorize @wiki
-  end
+  end 
 
   def edit
     @wiki = Wiki.find(params[:id])
