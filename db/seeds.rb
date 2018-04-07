@@ -16,7 +16,8 @@ users = User.all
  Wiki.create!(
    user:   users.sample,
    title:  Faker::Name.title,
-   body:   RandomData.random_paragraph
+   body:   RandomData.random_paragraph,
+   private: false
  )
 end
 wikis = Wiki.all

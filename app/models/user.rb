@@ -10,8 +10,8 @@ class User < ApplicationRecord
   before_save { self.role ||= :standard }
   after_initialize { self.role ||= :standard }
 
-
-  # Methods start here
-
+  def downgrade
+    wikis.update_all(private: false)
+  end
 
 end
