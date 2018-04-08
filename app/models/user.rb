@@ -10,8 +10,9 @@ class User < ApplicationRecord
   before_save { self.role ||= :standard }
   after_initialize { self.role ||= :standard }
 
-  def downgrade
+  def downgrade!
     wikis.update_all(private: false)
+    self.update_attribute(:role, 'standard')
   end
 
   # def downgrade
