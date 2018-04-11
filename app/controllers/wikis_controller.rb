@@ -5,7 +5,7 @@ class WikisController < ApplicationController
     if current_user.standard?
       @wikis = Wiki.where(private: false)
     else
-      @wikis = Wiki.all
+      @wikis = policy_scope(Wiki)
     end
   end
 
@@ -17,7 +17,7 @@ class WikisController < ApplicationController
   def new
     @wiki = Wiki.new
     authorize @wiki
-  end 
+  end
 
   def edit
     @wiki = Wiki.find(params[:id])
