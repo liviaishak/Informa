@@ -12,6 +12,7 @@
      <h4>Collaborators:</h4>
        <% @wiki.collaborations.each do |c| %>
          <%= c.user.email %>
+         <%= link_to "Delete Collaboration", [@wiki,c], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this collaboration?'} %>
        <% end %>
    </div>
  </div>

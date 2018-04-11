@@ -5,10 +5,7 @@ class CollaborationsController < ApplicationController
 
   def create
     @wiki = Wiki.find(params[:wiki_id])
-    @user = User.where('username LIKE ?', "%#{params[:search]}%")
-              .all_except(current_user)
-              .exclude_collaborators(@wiki)
-              .first
+    @user = User.find_by(email: params[:search])
     if @user
       @collaboration = Collaboration.new(wiki: @wiki, user: @user)
       if @collaboration.save
@@ -18,10 +15,11 @@ class CollaborationsController < ApplicationController
         flash.now[:alert] = "There was an error saving the collaboration. Please try again."
         redirect_to edit_wiki_path(@wiki)
       end
+    end
   end
 
   def destroy
-    @wiki = Wiki.find(params[:id])
+    @wiki = Wiki.find(params[:wiki_id])
     @collaboration = Collaboration.find(params[:id])
     @collaboration_user = User.find(@collaboration.user_id)
 
@@ -32,5 +30,5 @@ class CollaborationsController < ApplicationController
         flash.now[:alert] = "There was an error removing this collaboration."
         redirect_to edit_wiki_path(@wiki)
       end
-    end
+   end
 end

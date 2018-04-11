@@ -4,4 +4,5 @@ class Wiki < ApplicationRecord
   has_many :users, through: :collaborations
 
   validates :user, presence: true
+  scope :pubic, -> { where(private: false) }
 end
