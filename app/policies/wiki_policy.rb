@@ -34,4 +34,22 @@ class WikiPolicy
     user.present?
   end
 
+  class Scope
+     attr_reader :user, :scope
+
+     def initialize(user, scope)
+       @user = user
+       @scope = scope
+     end
+
+     def resolve
+       if user.admin?
+         scope.all # if the user is an admin, show them all the wikis
+       elsif user.premium?
+         scope.public | user.wikis |user.shared.wikis
+       else # this is the lowly standard user
+         scope.public
+       end
+     end
+   end
 end
