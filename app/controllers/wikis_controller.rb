@@ -10,7 +10,7 @@ class WikisController < ApplicationController
   end
 
   def show
-    @wiki = Wiki.find(params[:id])
+    @wiki = Wiki.friendly.find(params[:id])
     authorize @wiki
   end
 
@@ -20,7 +20,7 @@ class WikisController < ApplicationController
   end
 
   def edit
-    @wiki = Wiki.find(params[:id])
+    @wiki = Wiki.friendly.find(params[:id])
     @collaboration = Collaboration.new
     authorize @wiki
   end
@@ -39,7 +39,7 @@ class WikisController < ApplicationController
    end
 
   def update
-     @wiki = Wiki.find(params[:id])
+     @wiki = Wiki.friendly.find(params[:id])
      authorize @wiki
      @wiki.assign_attributes(wiki_params)
      if @wiki.save
@@ -52,7 +52,7 @@ class WikisController < ApplicationController
    end
 
    def destroy
-     @wiki = Wiki.find(params[:id])
+     @wiki = Wiki.friendly.find(params[:id])
      authorize @wiki
 
      if @wiki.destroy
