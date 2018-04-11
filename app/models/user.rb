@@ -11,11 +11,8 @@ class User < ApplicationRecord
 
   def downgrade!
     wikis.update_all(private: false)
-<<<<<<< HEAD
     self.update_attribute(:role, 'standard')
-=======
     self.standard!
->>>>>>> cp10_wiki_collaborators
   end
 
 end
