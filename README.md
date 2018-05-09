@@ -1,5 +1,5 @@
-## Blocipedia
-Blocipedia is a wiki app where users can share and collaborate either privately or publicly.
+## Informa
+Informa is a wiki app where users can share and collaborate either privately or publicly.
 
 ## Features:
 <p>Signup confirmation via email</p>
