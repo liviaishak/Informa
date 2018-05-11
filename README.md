@@ -1,24 +1,20 @@
-# README
+## Informa
+Informa is a wiki app where users can share and collaborate either privately or publicly.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features:
+<p>Signup confirmation via email</p>
+<p>Login authentication</p>
+<p>Password encryption</p>
+<p>Privacy posting</p>
+<p>Payment processing</p>
+<p>Markdown parsing</p>
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Technologies used:
+<p>Built with Ruby on the Rails Framework</p>
+<p>SQLite/ActiveRecord for database services</p>
+<p>Bootstrap-Sass for styling and SCSS preprocessing(gem)</p>
+<p>Devise for user authentication and confirmation(gem)</p>
+<p>Pundit for role authorization(gem)</p>
+<p>Stripe for signup payment processing(gem)</p>
+<p>Figaro for password protection(gem)</p>
+<p>Sendgrid for mailer services</p>
